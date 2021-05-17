@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
+    "gray-matter": "^4.0.3",
     "jsdom": "^16.5.3",
     "spreadparser": "^1.0.0",
     "turndown": "^7.0.0"

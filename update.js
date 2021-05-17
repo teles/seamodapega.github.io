@@ -1,6 +1,7 @@
 const Spreadparser = require('spreadparser');
 const axios = require('axios').default;
 const fs = require('fs');
+const matter = require('gray-matter');
 const TurndownService = require('turndown');
 const JSONPostsDir = './_posts';
 const JSONPostsPath = `${JSONPostsDir}/posts.json`;
@@ -65,7 +66,7 @@ const getMarkdownFromDocs = async (id) => {
 const writePostsToFiles = (postsList) => {
     postsList.forEach(async post => {
         const content = await getMarkdownFromDocs(post.body);
-        writeFile(`${JSONPostsDir}/${post.slug}.md`, content);
+        writeFile(`${JSONPostsDir}/${post.slug}.md`, matter.stringify(content, post));
     })
 };
 

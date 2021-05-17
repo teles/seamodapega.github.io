@@ -1,7 +1,12 @@
 const Spreadparser = require('spreadparser');
 const axios = require('axios').default;
 const fs = require('fs');
-const JSONPostsPath = './_posts/posts.json';
+const TurndownService = require('turndown');
+const JSONPostsDir = './_posts';
+const JSONPostsPath = `${JSONPostsDir}/posts.json`;
+const jsdom = require("jsdom");
+const {JSDOM} = jsdom;
+global.DOMParser = new JSDOM().window.DOMParser;
 
 const getPostsFromSpreadsheet = () => {
     return axios.get(Spreadparser.getSpreadsheetUrl('1zsbIRYDKQT_a3oHIIqS7cOai5zPPAEM6BC_FvGy6TD4'))
@@ -42,9 +47,25 @@ const filterPostsToUpdate = (currentPosts, newPosts) => {
     });
 };
 
+const getMarkdownFromDocs = async (id) => {
+    const docsUrl = `https://docs.google.com/document/d/e/${id}/pub`;
+    const turndown = new TurndownService({headingStyle: 'atx'});
+    turndown.remove('style').remove('script');
+
+    return new Promise((resolve, reject) => {
+        axios.get(docsUrl)
+            .then(response => {
+                const parser = new DOMParser();
+                const html = parser.parseFromString(response.data, 'text/html').querySelector('#contents').innerHTML;
+                resolve(turndown.turndown(html));
+            }).catch(err => reject(err));
+    })
+};
+
 const writePostsToFiles = (postsList) => {
-    postsList.forEach(post => {
-        writeFile(`${post.slug}.md`, JSON.stringify(post));
+    postsList.forEach(async post => {
+        const content = await getMarkdownFromDocs(post.body);
+        writeFile(`${JSONPostsDir}/${post.slug}.md`, content);
     })
 };
 

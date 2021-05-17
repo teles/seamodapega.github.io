@@ -1,0 +1,12 @@
+{
+  "name": "seamodapega.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:seamodapega/seamodapega.github.io.git",
+  "author": "Teles <jose.maciel@vivadecora.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "spreadparser": "^1.0.0"
+  }
+}

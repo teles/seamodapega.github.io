@@ -41,8 +41,8 @@ const getPostsFromJSON = () => {
 
 const filterPostsToUpdate = (currentPosts, newPosts) => {
     return newPosts.filter(newPost => {
-        const previousPost = currentPosts.find(currentPost => currentPost.slug === newPost.slug);
-        const isNewPost = previousPost !== null;
+        const previousPost = JSON.parse(currentPosts).find(currentPost => currentPost.slug === newPost.slug) || null;
+        const isNewPost = previousPost === null;
         const isUpdated = isNewPost ? true : previousPost.version < newPost.version;
         return isNewPost || isUpdated;
     });
@@ -57,24 +57,39 @@ const getMarkdownFromDocs = async (id) => {
         axios.get(docsUrl)
             .then(response => {
                 const parser = new DOMParser();
-                const html = parser.parseFromString(response.data, 'text/html').querySelector('#contents').innerHTML;
+                const html = parser
+                    .parseFromString(response.data, 'text/html')
+                    .querySelector('#contents')
+                    .innerHTML;
                 resolve(turndown.turndown(html));
             }).catch(err => reject(err));
     })
 };
 
-const writePostsToFiles = (postsList) => {
+const writePostsToFiles = async (postsList) => {
+    const postsFromJSON = await getPostsFromJSON();
+
     postsList.forEach(async post => {
         const content = await getMarkdownFromDocs(post.body);
-        writeFile(`${JSONPostsDir}/${post.slug}.md`, matter.stringify(content, post));
-    })
+        const fileName = `${JSONPostsDir}/${post.slug}.md`;
+        await writeFile(fileName, matter.stringify(content, post))
+            .then(async () => {
+                const updatedPost = JSON.parse(postsFromJSON).find(postFromJson => postFromJson.slug === post.slug) || null;
+
+                if(updatedPost === null || (updatedPost && updatedPost.version > post.version)) {
+                    const updatedJSON = JSON.parse(postsFromJSON).concat(post);
+                    await writeFile(JSONPostsPath, JSON.stringify(updatedJSON));
+                }
+            });
+        return post;
+    });
 };
 
 async function update() {
     const postsFromSpreadsheet = await getPostsFromSpreadsheet();
     const postsFromJSON = await getPostsFromJSON();
     const postToUpdate = filterPostsToUpdate(postsFromJSON, postsFromSpreadsheet);
-    writePostsToFiles(postToUpdate);
+    await writePostsToFiles(postToUpdate);
     return `${postToUpdate.length} posts updated.`;
 }
 

@@ -11,7 +11,7 @@ Chegando o final de semana ensolarado, um dia lindo lá fora e você sem program
 
 Você pode aproveitar com suas amigas ou com o companheiro, mesmo sendo um momento de descontração é desejável eu você esteja com uma roupa bonita e confortável. Como normalmente sentamos no chão ou em almofadas quando estamos num piquenique, é ideal ir com uma roupa mais compridinha, na altura dos joelhos para ficarmos mais à vontade.
 
-Se é um evento especial, nada como comprar uma roupa nova para a ocasião. Uma forma bem legal e pouco procurada nesses momentos são lojas de [moda evangélica](https://www.google.com/url?q=http://www.belaloba.com.br/vestidos-evangelicos-ct-33f5f&sa=D&source=editors&ust=1621344272378000&usg=AOvVaw1qR3jqOxB3jdIUGNtVWD-3), pois nelas sempre tem vestidos um pouco mais compridos, com tecidos leves, soltinhos e com cores e estampas graciosas.
+Se é um evento especial, nada como comprar uma roupa nova para a ocasião. Uma forma bem legal e pouco procurada nesses momentos são lojas de [moda evangélica](https://www.google.com/url?q=http://www.belaloba.com.br/vestidos-evangelicos-ct-33f5f&sa=D&source=editors&ust=1621362631289000&usg=AOvVaw28uYSjDAIP435O6W04xbER), pois nelas sempre tem vestidos um pouco mais compridos, com tecidos leves, soltinhos e com cores e estampas graciosas.
 
 Separamos alguns looks muito bonitos para te inspirar e escolher a roupa ideal:
 

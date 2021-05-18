@@ -31,7 +31,7 @@ const writeFile = (fileName, contents) => new Promise((resolve, reject) => {
 const getPostsFromJSON = () => {
     return new Promise((resolve) => {
         readFile(JSONPostsPath)
-            .then(contents => resolve(contents))
+            .then(contents => resolve(JSON.parse(contents)))
             .catch(() => {
                 writeFile(JSONPostsPath, '[]')
                     .then(() => resolve([]))
@@ -41,7 +41,7 @@ const getPostsFromJSON = () => {
 
 const filterPostsToUpdate = (currentPosts, newPosts) => {
     return newPosts.filter(newPost => {
-        const previousPost = JSON.parse(currentPosts).find(currentPost => currentPost.slug === newPost.slug) || null;
+        const previousPost = currentPosts.find(currentPost => currentPost.slug === newPost.slug) || null;
         const isNewPost = previousPost === null;
         const isUpdated = isNewPost ? true : previousPost.version < newPost.version;
         return isNewPost || isUpdated;
@@ -66,30 +66,21 @@ const getMarkdownFromDocs = async (id) => {
     })
 };
 
-const writePostsToFiles = async (postsList) => {
-    const postsFromJSON = await getPostsFromJSON();
-
-    postsList.forEach(async post => {
+const writePostsToFiles = async (originalPosts, postsToUpdate) => {
+    await postsToUpdate.forEach(async post => {
         const content = await getMarkdownFromDocs(post.body);
         const fileName = `${JSONPostsDir}/${post.slug}.md`;
-        await writeFile(fileName, matter.stringify(content, post))
-            .then(async () => {
-                const updatedPost = JSON.parse(postsFromJSON).find(postFromJson => postFromJson.slug === post.slug) || null;
-
-                if(updatedPost === null || (updatedPost && updatedPost.version > post.version)) {
-                    const updatedJSON = JSON.parse(postsFromJSON).concat(post);
-                    await writeFile(JSONPostsPath, JSON.stringify(updatedJSON));
-                }
-            });
-        return post;
+        await writeFile(fileName, matter.stringify(content, post));
+        await writeFile(JSONPostsPath, JSON.stringify(Object.assign(originalPosts, postsToUpdate)));
     });
+    return Object.assign(originalPosts, postsToUpdate);
 };
 
 async function update() {
     const postsFromSpreadsheet = await getPostsFromSpreadsheet();
     const postsFromJSON = await getPostsFromJSON();
     const postToUpdate = filterPostsToUpdate(postsFromJSON, postsFromSpreadsheet);
-    await writePostsToFiles(postToUpdate);
+    await writePostsToFiles(postsFromJSON, postToUpdate);
     return `${postToUpdate.length} posts updated.`;
 }
 

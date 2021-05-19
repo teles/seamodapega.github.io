@@ -12,18 +12,19 @@ global.DOMParser = new JSDOM().window.DOMParser;
 const lineToPost = line => {
     return JSON.parse(JSON.stringify({
         slug: line.slug,
+        description: line.description,
         tags: line.tags ? line.tags.split(',').map(tag => tag.trim()) : undefined,
         version: line.version,
         title: line.title,
-        document: `https://docs.google.com/document/d/e/${line.document}/pub`
+        document: line.document
     }));
 };
 const postToFrontmatterData = (post, markdown) => {
     return JSON.parse(JSON.stringify({
         title: post.title ||  markdown.title,
+        description: post.description,
         tags: post.tags,
         version: post.version,
-        document: post.document,
         slug: post.slug
     }));
 };

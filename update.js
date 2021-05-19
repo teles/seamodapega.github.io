@@ -10,12 +10,13 @@ const {JSDOM} = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
 
 const lineToPost = line => {
+    console.log(line);
     return {
         slug: line.slug,
-        tags: (line.tags.split(',') || []).map(tag => tag.trim()),
+        tags: line.tags ?  line.tags.split(',').map(tag => tag.trim()) : null,
         version: line.version,
         title: line.title || null,
-        document: `https://docs.google.com/document/d/e/${line.body}/pub`
+        document: `https://docs.google.com/document/d/e/${line.document}/pub`
     }
 };
 
@@ -93,5 +94,5 @@ async function update(spreadsheetId) {
     return `${postsToUpdate.length} posts updated.`;
 }
 
-update('1zsbIRYDKQT_a3oHIIqS7cOai5zPPAEM6BC_FvGy6TD4')
+update('1DttyM08d5C8NoCBEnadJLCY1w34DAabk_fZg07MR9ng')
     .then(responses => console.log(responses));

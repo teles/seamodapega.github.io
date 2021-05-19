@@ -10,14 +10,22 @@ const {JSDOM} = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
 
 const lineToPost = line => {
-    console.log(line);
-    return {
+    return JSON.parse(JSON.stringify({
         slug: line.slug,
-        tags: line.tags ?  line.tags.split(',').map(tag => tag.trim()) : null,
+        tags: line.tags ? line.tags.split(',').map(tag => tag.trim()) : undefined,
         version: line.version,
-        title: line.title || null,
+        title: line.title,
         document: `https://docs.google.com/document/d/e/${line.document}/pub`
-    }
+    }));
+};
+const postToFrontmatterData = (post, markdown) => {
+    return JSON.parse(JSON.stringify({
+        title: post.title ||  markdown.title,
+        tags: post.tags,
+        version: post.version,
+        document: post.document,
+        slug: post.slug
+    }));
 };
 
 const getPostsFromSpreadsheet = (spreadsheetId) => {
@@ -68,20 +76,22 @@ const getMarkdownFromDocs = async (post) => {
         axios.get(post.document)
             .then(response => {
                 const parser = new DOMParser();
-                const html = parser
-                    .parseFromString(response.data, 'text/html')
-                    .querySelector('#contents')
-                    .innerHTML;
-                resolve(turndown.turndown(html));
+                const html = parser.parseFromString(response.data, 'text/html');
+                const content = html.querySelector('#contents').innerHTML;
+                const title = html.querySelector('title').innerHTML;
+                resolve({
+                    title,
+                    content: turndown.turndown(content)
+                });
             }).catch(err => reject(err));
     })
 };
 
 const writePostsToFiles = async (originalPosts, postsToUpdate) => {
     await postsToUpdate.forEach(async post => {
-        const content = await getMarkdownFromDocs(post);
+        const markdown = await getMarkdownFromDocs(post);
         const fileName = `${JSONPostsDir}/${post.slug}.md`;
-        await writeFile(fileName, matter.stringify(content, post));
+        await writeFile(fileName, matter.stringify(markdown.content, postToFrontmatterData(post, markdown)));
         await writeFile(JSONPostsPath, JSON.stringify(Object.assign(originalPosts, postsToUpdate), null, 2));
     });
 };

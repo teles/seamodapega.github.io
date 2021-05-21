@@ -1,9 +1,18 @@
 ---
+description: >-
+  Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho
+  certeza que você também tem. E nada melhor que expressar todo o nosso amor
+  pela banda que tanto gostamos e uma forma de fazer isso é investindo em looks
+  com camiseta de banda.
+image:
+  src: >-
+    https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg
+published: true
+slug: camiseta-de-banda
+tags:
+  - camiseta
 title: camiseta de banda
 version: 1
-document: >-
-  https://docs.google.com/document/d/e/2PACX-1vQilRytmKiaa8WthdDqg3-CMH6jf-dvYk3RnNhkUD5v-fz5GWS73ZrLmgmSoleXPJpwF3XlqkbG6_Ti/pub
-slug: camiseta-de-banda
 ---
 Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho certeza que você também tem. E nada melhor que expressar todo o nosso amor pela banda que tanto gostamos e uma forma de fazer isso é investindo em looks com camiseta de banda.
 

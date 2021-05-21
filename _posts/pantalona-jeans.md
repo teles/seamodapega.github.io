@@ -1,9 +1,19 @@
 ---
+description: >-
+  A pantalona jeans é aquela tendência de moda que de tempos em tempos  volta e
+  todo mundo se rende aos seus encantos, visto que os looks com pantalona jeans
+  são super confortáveis além de produzirem um visual cheio de estilo bem
+  fashionista.
+image:
+  src: >-
+    https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg
+published: true
+slug: pantalona-jeans
+tags:
+  - pantalona
+  - jeans
 title: pantalona jeans
 version: 1
-document: >-
-  https://docs.google.com/document/d/e/2PACX-1vT_bVoyMtb3ZPXTq9Vc5rgK4u7Hp6Hl1yOPvNvYZ-RxGGQAlBbBmOagqPi0WAr6jySolskr95q07oBS/pub
-slug: pantalona-jeans
 ---
 A pantalona jeans é aquela tendência de moda que de tempos em tempos  volta e todo mundo se rende aos seus encantos, visto que os looks com pantalona jeans são super confortáveis além de produzirem um visual cheio de estilo bem fashionista.
 

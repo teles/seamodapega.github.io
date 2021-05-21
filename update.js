@@ -11,21 +11,28 @@ global.DOMParser = new JSDOM().window.DOMParser;
 
 const lineToPost = line => {
     return JSON.parse(JSON.stringify({
-        slug: line.slug,
         description: line.description,
+        document: line.document,
+        image: line.image && line.image.src ? {
+            src: line.image.src
+        } : undefined,
+        published: line.published || true,
+        slug: line.slug,
         tags: line.tags ? line.tags.split(',').map(tag => tag.trim()) : undefined,
-        version: line.version,
         title: line.title,
-        document: line.document
+        version: line.version
+
     }));
 };
 const postToFrontmatterData = (post, markdown) => {
     return JSON.parse(JSON.stringify({
-        title: post.title ||  markdown.title,
         description: post.description,
+        image: post.image,
+        published: post.published,
+        slug: post.slug,
         tags: post.tags,
-        version: post.version,
-        slug: post.slug
+        title: post.title || markdown.title,
+        version: post.version
     }));
 };
 
@@ -70,8 +77,22 @@ const filterPostsToUpdate = (originalPosts, newPosts) => {
 };
 
 const getMarkdownFromDocs = async (post) => {
+    const removeGoogleAnchorStuff = (originalLink) => {
+        const match = originalLink.match(/google.com\/url\?q=([^&]+)/) || null;
+        return match ? match[1] : originalLink;
+    };
+
+    const anchorFilter = {
+        filter: 'a',
+        replacement: function (content, node) {
+            return `<a href='${removeGoogleAnchorStuff(node.getAttribute('href'))}'>${content}</a>`;
+        }
+    };
     const turndown = new TurndownService({headingStyle: 'atx'});
-    turndown.remove('style').remove('script');
+    turndown
+        .remove('style')
+        .remove('script')
+        .addRule('anchor', anchorFilter);
 
     return new Promise((resolve, reject) => {
         axios.get(post.document)

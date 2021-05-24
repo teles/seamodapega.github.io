@@ -7,14 +7,14 @@ description: >-
   visual.
 image:
   src: >-
-    https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg
+    https://fabianascaranzi.com.br/wp-content/uploads/2016/06/cal%C3%A7a-de-couro-destaque.jpg
 published: true
 slug: calca-de-couro
 tags:
   - calça
   - couro
 title: calça de couro
-version: 1
+version: 2
 ---
 Alguns tipos de peças são curinga em nosso guarda-roupa e entre essas peças encontramos a calça de couro. Seja ela uma calça de couro flare, tradicional ou mesmo com alguns detalhes como bolsos, esse tipo de calça pode ser inserida com facilidade em diferentes estilos e acrescentar um toque especial no seu visual.
 

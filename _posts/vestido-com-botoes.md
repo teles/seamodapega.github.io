@@ -3,15 +3,14 @@ description: >-
   Se você está em busca de uma peça atemporal e que vai ser possível usá-la em
   diferentes épocas do ano, essa peça é o vestido com botões na frente.
 image:
-  src: >-
-    https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg
+  src: 'https://i.ytimg.com/vi/2s9oRfUDano/maxresdefault.jpg'
 published: true
 slug: vestido-com-botoes
 tags:
   - vestido
   - botoes
 title: vestido com botões
-version: 1
+version: 2
 ---
 Se você está em busca de uma peça atemporal e que vai ser possível usá-la em diferentes épocas do ano, essa peça é o vestido com botões na frente.
 

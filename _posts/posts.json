@@ -1,22 +1,9 @@
 [
   {
-    "description": "Não é de hoje que a saia midi plissada faz sucesso e ganhou seu espaço no mundo fashion. Mas apesar de linda e super feminina, muitas mulheres encontram dificuldade na hora de montar looks com saia midi plissada, investindo quase sempre em um estilo mais clássico.",
-    "document": "https://docs.google.com/document/d/e/2PACX-1vSKU8FQx7TngUg3boHLUyaqdFjM-1tOlv7P0bvdeUp5f_V4jrsdJu6lZ5hn0rOcbVYxtGmzuqQ66E64/pub",
-    "image": {
-      "src": "https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg"
-    },
-    "published": true,
-    "slug": "saia-midi-plissada",
-    "tags": [
-      "saia"
-    ],
-    "version": 1
-  },
-  {
     "description": "Se você está em busca de uma peça atemporal e que vai ser possível usá-la em diferentes épocas do ano, essa peça é o vestido com botões na frente.",
     "document": "https://docs.google.com/document/d/e/2PACX-1vQvM2wnd0pjU7iLMcSEGjiOD99yDi4xBd7r3sYwpc9fkFuOUSs1w4bsPSdbgAZz0avrTrFNeLeodGxy/pub",
     "image": {
-      "src": "https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg"
+      "src": "https://i.ytimg.com/vi/2s9oRfUDano/maxresdefault.jpg"
     },
     "published": true,
     "slug": "vestido-com-botoes",
@@ -24,21 +11,34 @@
       "vestido",
       "botoes"
     ],
-    "version": 1
+    "version": 2
   },
   {
-    "description": "A pantalona jeans é aquela tendência de moda que de tempos em tempos  volta e todo mundo se rende aos seus encantos, visto que os looks com pantalona jeans são super confortáveis além de produzirem um visual cheio de estilo bem fashionista.",
-    "document": "https://docs.google.com/document/d/e/2PACX-1vT_bVoyMtb3ZPXTq9Vc5rgK4u7Hp6Hl1yOPvNvYZ-RxGGQAlBbBmOagqPi0WAr6jySolskr95q07oBS/pub",
+    "description": "Alguns tipos de peças são curinga em nosso guarda-roupa e entre essas peças encontramos a calça de couro. Seja ela uma calça de couro flare, tradicional ou mesmo com alguns detalhes como bolsos, esse tipo de calça pode ser inserida com facilidade em diferentes estilos e acrescentar um toque especial no seu visual.",
+    "document": "https://docs.google.com/document/d/e/2PACX-1vRa7V-htO6WGqOkxy47itxghyF987heUle4p123azfzSYPSCxT5-eKVEAiimz5blRMwW8Jwy5IAWR1t/pub",
     "image": {
-      "src": "https://images.tcdn.com.br/img/img_prod/759897/saia_midi_plissada_floral_azul_5074513_1_20200912013502.jpg"
+      "src": "https://fabianascaranzi.com.br/wp-content/uploads/2016/06/cal%C3%A7a-de-couro-destaque.jpg"
     },
     "published": true,
-    "slug": "pantalona-jeans",
+    "slug": "calca-de-couro",
     "tags": [
-      "pantalona",
-      "jeans"
+      "calça",
+      "couro"
     ],
-    "version": 1
+    "version": 2
+  },
+  {
+    "description": "Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho certeza que você também tem. E nada melhor que expressar todo o nosso amor pela banda que tanto gostamos e uma forma de fazer isso é investindo em looks com camiseta de banda.",
+    "document": "https://docs.google.com/document/d/e/2PACX-1vQilRytmKiaa8WthdDqg3-CMH6jf-dvYk3RnNhkUD5v-fz5GWS73ZrLmgmSoleXPJpwF3XlqkbG6_Ti/pub",
+    "image": {
+      "src": "https://modafeminina.biz/wp-content/uploads/2015/04/Camisetas-de-Banda-para-Mulheres.jpg"
+    },
+    "published": true,
+    "slug": "camiseta-de-banda",
+    "tags": [
+      "camiseta"
+    ],
+    "version": 2
   },
   {
     "description": "Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho certeza que você também tem. E nada melhor que expressar todo o nosso amor pela banda que tanto gostamos e uma forma de fazer isso é investindo em looks com camiseta de banda.",

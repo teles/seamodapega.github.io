@@ -8,6 +8,7 @@ const JSONPostsPath = `${JSONPostsDir}/posts.json`;
 const jsdom = require("jsdom");
 const {JSDOM} = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
+const args = process.argv.slice(2);
 
 const lineToPost = line => {
     return JSON.parse(JSON.stringify({
@@ -119,6 +120,7 @@ const writePostsToFiles = async (originalPosts, postsToUpdate) => {
 };
 
 async function update(spreadsheetId) {
+    console.log(args);
     const postsFromSpreadsheet = await getPostsFromSpreadsheet(spreadsheetId);
     const postsFromJSON = await getPostsFromJSON();
     const postsToUpdate = filterPostsToUpdate(postsFromJSON, postsFromSpreadsheet);

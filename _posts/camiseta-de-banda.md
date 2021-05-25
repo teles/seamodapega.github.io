@@ -1,4 +1,5 @@
 ---
+category: Camiseta
 description: >-
   Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho
   certeza que você também tem. E nada melhor que expressar todo o nosso amor
@@ -12,7 +13,7 @@ slug: camiseta-de-banda
 tags:
   - camiseta
 title: camiseta de banda
-version: 2
+version: 3
 ---
 Todo mundo tem aquele cantor (a) ou banda predileta, não é mesmo? E tenho certeza que você também tem. E nada melhor que expressar todo o nosso amor pela banda que tanto gostamos e uma forma de fazer isso é investindo em looks com camiseta de banda.
 
